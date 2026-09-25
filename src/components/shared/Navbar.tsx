@@ -1,14 +1,18 @@
+'use client'
+
 import Image from 'next/image';
 
 import logo from"@/assets/logo.png";
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 const Navbar = () => {
+    const pathename=usePathname();
 
   const links=<>
-   <li><Link href={"/"}>Home</Link></li>
-   <li><Link href={"/books"}>Books</Link></li>
-   <li><Link href={"/listed-books"}>Listed Books</Link></li>
+   <li><Link href={"/"} className={pathename==="/"? "text-[#C2F800]" :"text-black"}>Workouts</Link></li>
+   <li><Link href={"/"}>My plan</Link></li>
+   
     
     </>
     return (
@@ -26,7 +30,7 @@ const Navbar = () => {
     </div>
      <div className='flex gap-2 items-center'>
 <Image src={logo} alt='book-icon'/>
-Book Vibe
+FITLOG
   </div>
   </div>
   <div className="navbar-center hidden lg:flex">
@@ -36,8 +40,8 @@ Book Vibe
   </div>
  
   <div className="navbar-end gap-3">
-    <a className="btn btn-success"></a>
-    <a className="btn btn-error">Sign Up</a>
+    <a className="btn btn-success">Plan</a>
+    <a className="btn btn-error">Saved</a>
   </div>
 </div>
     );

@@ -14,7 +14,7 @@ const Banner = () => {
           <div className="relative grid grid-cols-1 items-center gap-10 md:grid-cols-2">
             {/* Text Content */}
             <div className="space-y-6">
-              <span className="inline-block rounded-full bg-indigo-100 px-4 py-2 text-sm font-semibold text-indigo-600">
+              <span className=" px-4 py-2 text-sm font-semibold text-[#C2F800]">
                 WORKOUT LIBRARY
               </span>
 
@@ -31,7 +31,7 @@ const Banner = () => {
 
               <div className="flex flex-wrap gap-4">
                 <button className="btn bg-[#C2F800] text-black border-none font-bold">
-                  BROWSE WORKOUTS →
+                  BROWSE WORKOUTS 
                 </button>
               </div>
             </div>

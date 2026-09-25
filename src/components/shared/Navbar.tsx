@@ -10,8 +10,8 @@ const Navbar = () => {
     const pathename=usePathname();
 
   const links=<>
-   <li><Link href={"/"} className={pathename==="/"? "text-[#C2F800]" :"text-black"}>Workouts</Link></li>
-   <li><Link href={"/"}>My plan</Link></li>
+   <li><Link href={"/"} className={pathename==="/"? "text-[#C2F800]" :"text-white"}>Workouts</Link></li>
+   <li><Link href={"/listed-card"} className={pathename==="/cards"? "text-[#C2F800]" :"text-white"}>My plan</Link></li>
    
     
     </>
@@ -40,8 +40,8 @@ FITLOG
   </div>
  
   <div className="navbar-end gap-8 mr-8">
-    <Link href={"/"} className={pathename==="/"? "text-[#C2F800]" :"text-black"}>Plan</Link>
-    <Link href={"/"} className={pathename==="/"? "text-[#C2F800]" :"text-black"}>Saved</Link>
+    <Link href={"/"} className={pathename==="/"? "text-[#C2F800]" :"text-white"}>Plan</Link>
+    <Link href={"/"} className={pathename==="/"? "text-[#C2F800]" :"text-white"}>Saved</Link>
   </div>
 </div>
     );

@@ -20,7 +20,7 @@ const Card =async () => {
 
         <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6'>
             {
-               cardData.map((card:Icard)=>(
+               cardData.slice(0,6).map((card:Icard)=>(
 <SingleCard key={card.id} card={card}/>
                ))}
 

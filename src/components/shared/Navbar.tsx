@@ -39,9 +39,9 @@ FITLOG
     </ul>
   </div>
  
-  <div className="navbar-end gap-3">
-    <a className="btn btn-success">Plan</a>
-    <a className="btn btn-error">Saved</a>
+  <div className="navbar-end gap-8 mr-8">
+    <Link href={"/"} className={pathename==="/"? "text-[#C2F800]" :"text-black"}>Plan</Link>
+    <Link href={"/"} className={pathename==="/"? "text-[#C2F800]" :"text-black"}>Saved</Link>
   </div>
 </div>
     );

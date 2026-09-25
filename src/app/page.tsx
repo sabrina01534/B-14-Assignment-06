@@ -1,7 +1,12 @@
+import Banner from "@/components/homepage/Banner";
+import Card from "./cards/page";
 
 
 export default function Home() {
   return (
-   <h1 className="text-5xl text-green-500 font-bold">Home page</h1>
+   <div>
+    <Banner/>
+   <Card/>
+   </div>
   );
 }

@@ -18,8 +18,8 @@ const totalCalories=todayplan.reduce(
 
   return (
     <div className="container mx-auto">
-        <h1 className="text-2xl font-bold">MY PLAN</h1>
-        <h2>Cap of five lifts for today. Finish them, then load more.</h2>
+        <h1 className="text-2xl font-bold ml-10">MY PLAN</h1>
+        <h2 className="ml-10">Cap of five lifts for today. Finish them, then load more.</h2>
       <div className="mt-5 flex justify-between ml-10 mr-10 p-10 border border-gray-700 rounded bg-gray-900">
 <div>
   <h1 className="text-2xl">Exercises</h1>
@@ -35,7 +35,7 @@ const totalCalories=todayplan.reduce(
 </div>
       </div>
      
-<div className="tabs tabs-border mt-5">
+<div className="tabs tabs-border mt-5 ml-10 mr-10">
   <input type="radio" name="my_tabs_2" className="tab" aria-label="Today's plan" />
   <div className="tab-content border-base-300 bg-base-100 p-10">
   {todayplan.length>0?

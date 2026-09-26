@@ -1,9 +1,8 @@
-
-import { CardContext } from "@/context/CardContext";
+import { useCardContext } from "@/context/CardContext";
 import { Icard } from "@/types/cardtypes";
 import Image from "next/image";
 import Link from "next/link";
-import React, { useContext } from "react";
+import React from "react";
 import { FaFire, FaStar } from "react-icons/fa";
 import { FaDeleteLeft } from "react-icons/fa6";
 import { MdOutlineAccessTimeFilled } from "react-icons/md";
@@ -16,7 +15,7 @@ type IcardProps = {
 
 const NewCard = ({ card,type }: IcardProps) => {
 
-    const {setsaveCard,settodayPlan}=useContext(CardContext)!
+    const { setsaveCard, settodayPlan } = useCardContext();
 
     const handleRemoveButton=(card:Icard)=>{
         if(type==="saved"){

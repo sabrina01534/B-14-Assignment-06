@@ -1,13 +1,13 @@
 'use client'
 
-import {CardContext} from '@/context/CardContext';
+import { useCardContext } from '@/context/CardContext';
 import { Icard } from '@/types/cardtypes';
-import React, { useContext } from 'react';
+import React from 'react';
 import { CiCalendarDate } from 'react-icons/ci';
 import { toast } from 'react-toastify';
 
 const PlanButton = ({card}:{card:Icard}) => {
-    const {todayplan,settodayPlan}=useContext(CardContext)
+    const {todayplan,settodayPlan}=useCardContext()
     const handlePlanCard=()=>{
 
         const havePlaned=todayplan.some((item)=>item.id===card.id)

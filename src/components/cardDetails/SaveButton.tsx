@@ -1,15 +1,12 @@
 'use client'
 
-import {CardContext} from '@/context/CardContext';
-
-
+import { useCardContext } from '@/context/CardContext';
 import { Icard } from '@/types/cardtypes';
-import  { useContext } from 'react';
 import { CiSaveDown2 } from 'react-icons/ci';
 import { toast } from 'react-toastify';
 
 const SaveButton = ({card}:{card:Icard}) => {
-    const {saveCard,setsaveCard}=useContext(CardContext)
+    const {saveCard,setsaveCard}=useCardContext()
     const handleSaveCard=()=>{
             const haveSaved=saveCard.some((item)=>item.id===card.id)
         

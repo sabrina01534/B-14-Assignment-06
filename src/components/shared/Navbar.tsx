@@ -5,12 +5,11 @@ import Image from 'next/image';
 import logo from"@/assets/logo.png";
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { useContext } from 'react';
-import { CardContext } from '@/context/CardContext';
+import { useCardContext } from '@/context/CardContext';
 
 const Navbar = () => {
     const pathename=usePathname();
-  const{todayplan,saveCard}=useContext(CardContext)
+  const { todayplan, saveCard } = useCardContext();
   const links=<>
    <li><Link href={"/"} className={pathename==="/"? "text-[#C2F800]" :"text-white"}>Workouts</Link></li>
    <li><Link href={"/listed-card"} className={pathename==="/cards"? "text-[#C2F800]" :"text-white"}>My plan</Link></li>

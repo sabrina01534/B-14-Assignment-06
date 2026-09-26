@@ -39,9 +39,12 @@ const totalCalories=todayplan.reduce(
   <input type="radio" name="my_tabs_2" className="tab" aria-label="Today's plan" />
   <div className="tab-content border-base-300 bg-base-100 p-10">
   {todayplan.length>0?
-    todayplan.map((card:Icard)=>{
-      return<NewCard key={card.id} card={card}></NewCard>
-    }):(
+    todayplan.map((card) => (
+  <NewCard
+    key={card.id}
+    card={card} type="today's plan"
+  />
+)):(
       <div className=" ">
         <p className="text-center text-white text-3xl">
         No plan card found<br/>
@@ -56,9 +59,9 @@ const totalCalories=todayplan.reduce(
   <input type="radio" name="my_tabs_2" className="tab" aria-label="Saved" defaultChecked />
   <div className="tab-content border-base-300 bg-base-100 p-10 mb-3">
    {saveCard.length>0?
-    saveCard.map((card:Icard)=>{
-      return <NewCard key={card.id} card={card}></NewCard>
-    }):(
+    saveCard.map((card:Icard)=>(
+      <NewCard key={card.id} card={card} type="saved"></NewCard>
+    )):(
       <p className="text-center text-white text-3xl">
         No save card found<br/>
          <Link href={"/"}><button className="btn mt-3 bg-[#C2F800] font-bold text-black rounded-xl">Go to woktouts</button></Link>

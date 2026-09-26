@@ -1,19 +1,40 @@
 
+import { CardContext } from "@/context/CardContext";
 import { Icard } from "@/types/cardtypes";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { useContext } from "react";
 import { FaFire, FaStar } from "react-icons/fa";
 import { FaDeleteLeft } from "react-icons/fa6";
 import { MdOutlineAccessTimeFilled } from "react-icons/md";
 
 type IcardProps = {
   card: Icard;
+  type:"saved"|"today's plan";
+  
 };
 
-const NewCard = ({ card }: IcardProps) => {
+const NewCard = ({ card,type }: IcardProps) => {
+
+    const {setsaveCard,settodayPlan}=useContext(CardContext)!
+
+    const handleRemoveButton=(card:Icard)=>{
+        if(type==="saved"){
+setsaveCard((preCards)=>
+            preCards.filter((item)=>item.id !==card.id)
+        )
+        }
+        else{
+            settodayPlan((preCards)=>
+            preCards.filter((itme)=>itme.id !==card.id)
+            )
+        }
+        
+    }
+   
   return (
-    <Link href={`/cards/${card.id}`}>
+    <div>
+        
       <div className="group w-full  overflow-hidden rounded-2xl border border-gray-200 bg-gray-700 shadow-sm transition-all duration-300 hover:shadow-lg">
         <div className="flex flex-col md:flex-row gap-5">
 
@@ -79,11 +100,13 @@ const NewCard = ({ card }: IcardProps) => {
            <div className="flex gap-3 pt-30">
                 <Link href={"/"}><button className="btn border-gray-400 rounded-2xl">View Details</button></Link>
             <button className="btn bg-[#C2F800] rounded-2xl text-white">Mark as Read</button>
-            <button className="pb-22 mr-2"><FaDeleteLeft /></button>
+     <button onClick={()=>handleRemoveButton(card)} className="pb-22 mr-2"><FaDeleteLeft /></button>
             </div>
         </div>
       </div>
-    </Link>
+    
+     
+    </div>
   );
 };
 

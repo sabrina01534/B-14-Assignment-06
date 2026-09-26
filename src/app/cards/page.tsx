@@ -4,7 +4,7 @@ import ListedPage from '../listed-card/page';
 
 
 const getCard= async()=>{
-    const res=await fetch('https://api.api-store.workers.dev/api/fitlog/:id')
+    const res=await fetch('https://api.api-store.workers.dev/api/fitlog')
     const data=await res.json();
     return data;
 }

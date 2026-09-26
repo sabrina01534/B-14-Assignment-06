@@ -1,5 +1,8 @@
+import PlanButton from "@/components/cardDetails/PlanButton";
+import SaveButton from "@/components/cardDetails/SaveButton";
 import { Icard } from "@/types/cardtypes";
 import Image from "next/image";
+
 import { CiCalendarDate, CiSaveDown2 } from "react-icons/ci";
 
 interface ICardDetailsProps{
@@ -14,8 +17,10 @@ const getCard= async()=>{
     return data;
 }
 
+
 const CardDetailspage =async ({params}:ICardDetailsProps) => {
     const{id}=await params;
+     
     const cardData=await getCard();
     const card=cardData.find((card:Icard)=>
     String(card.id)===String(id))as Icard
@@ -83,8 +88,10 @@ console.log(card,"card")
         
     </div>
      <div className="flex gap-5">
-      <button className="btn btn-primary bg-[#C2F800] text-black border-none"><CiCalendarDate />Add to today's plan</button>
-      <button className="btn border-gray-100"><CiSaveDown2 />Save for later</button>
+      
+      
+    <PlanButton card={card}></PlanButton>
+    <SaveButton card={card}></SaveButton>
     </div>
    
   </div>

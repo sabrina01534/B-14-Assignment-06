@@ -39,8 +39,6 @@ const SingleCard = ({card}:IcardProps) => {
   </div>
 </div> 
  
- {/* <Link href={`/books/${book.bookId}`}> */}
-        {/* <button className="btn btn-success w-full">View Details</button></Link> */}
         </div>
         </Link>
 

@@ -1,15 +1,22 @@
 'use client'
 
+import { Icard } from "@/types/cardtypes";
 import { createContext, ReactNode, useState } from "react";
 
+type CardContextType={
+     saveCard: Icard[];
+  setsaveCard: React.Dispatch<React.SetStateAction<Icard[]>>;
+  todayplan: Icard[];
+  settodayPlan: React.Dispatch<React.SetStateAction<Icard[]>>;
+}
 
 
-const CardContext =createContext ({})
+ const CardContext =createContext <CardContextType | undefined>(undefined)
 
     const CardProvider=({children}:{children:ReactNode})=>{
         
-    const [saveCard,setsaveCard]=useState([]);
-    const [todayplan,settodayPlan]=useState([]);
+    const [saveCard,setsaveCard]=useState<Icard[]>([]);
+    const [todayplan,settodayPlan]=useState<Icard[]>([]);
 
     const sharedData={
         saveCard,
@@ -19,9 +26,11 @@ const CardContext =createContext ({})
     }
     return (
         <div>
-          <CardContext.Provider value={sharedData}>{children}</CardContext.Provider>
+          <CardContext.Provider value={sharedData}>
+            {children}</CardContext.Provider>
         </div>
     );
 };
 
-export default CardContext;
+export {CardContext};
+export default CardProvider;

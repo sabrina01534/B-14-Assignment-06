@@ -1,5 +1,6 @@
 import SingleCard from '@/components/shared/SingleCard';
 import { Icard } from '@/types/cardtypes';
+import ListedPage from '../listed-card/page';
 
 
 const getCard= async()=>{
@@ -20,11 +21,12 @@ const Card =async () => {
 
         <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6'>
             {
-               cardData.slice(0,6).map((card:Icard)=>(
+               cardData.map((card:Icard)=>(
 <SingleCard key={card.id} card={card}/>
                ))}
 
         </div>
+        
         </section>
     );
 };

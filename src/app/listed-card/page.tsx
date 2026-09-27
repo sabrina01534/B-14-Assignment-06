@@ -1,8 +1,8 @@
 "use client";
 
 import NewCard from "@/components/NewCard";
-import SingleCard from "@/components/shared/SingleCard";
-import { CardContext, useCardContext } from "@/context/CardContext";
+
+import { useCardContext } from "@/context/CardContext";
 import { Icard } from "@/types/cardtypes";
 import Link from "next/link";
 import { useState } from "react";
@@ -10,6 +10,10 @@ import { useState } from "react";
 const ListedPage = () => {
   const { saveCard, todayplan } = useCardContext();
   const[sortBy,setSortBy]=useState<"Duration"|"Caloriburn">("Duration")
+
+  const[activeTab,setactiveTab]=useState<"plan" |"saved">("plan")
+
+
 
 const sortCards=(card:Icard[])=>{
   const sortCards=[...card]
@@ -25,10 +29,12 @@ const sortCards=(card:Icard[])=>{
 
 const sortedTodayPlan=sortCards(todayplan)
 const sortedSaveCard=sortCards(saveCard)
-  const totalMinutes=todayplan.reduce(
+
+const currentActiveCard=activeTab ==="plan"? todayplan:saveCard;
+  const totalMinutes=currentActiveCard.reduce(
   (total,card)=>total + Number(card.duration),0);
 
-const totalCalories=todayplan.reduce(
+const totalCalories=currentActiveCard.reduce(
   (total,card)=> total + Number(card.caloriesBurned),0)
 
   return (
@@ -38,7 +44,7 @@ const totalCalories=todayplan.reduce(
       <div className="mt-5 flex justify-between ml-10 mr-10 p-10 border border-gray-700 rounded bg-gray-900">
 <div>
   <h1 className="text-2xl">Exercises</h1>
-  <p className="text-center text-2xl">{todayplan.length}</p>
+  <p className="text-center text-2xl">{currentActiveCard.length}</p>
 </div>
 <div>
 <h1 className="text-2xl">Minutes</h1>
@@ -61,7 +67,8 @@ const totalCalories=todayplan.reduce(
 </div>
 
   <div className="tabs tabs-border mt-5 ml-10 mr-10">
-  <input type="radio" name="my_tabs_2" className="tab" aria-label="Today's plan" />
+  <input type="radio" name="my_tabs_2" className="tab" aria-label="Today's plan"
+  checked={activeTab==="plan"} onChange={()=>setactiveTab("plan")}/>
   <div className="tab-content border-base-300 bg-base-100 p-10">
   {todayplan.length>0?
     sortedTodayPlan.map((card) => (
@@ -81,8 +88,9 @@ const totalCalories=todayplan.reduce(
   }
     </div>
 
-  <input type="radio" name="my_tabs_2" className="tab" aria-label="Saved" defaultChecked />
-  <div className="tab-content border-base-300 bg-base-100 p-10 mb-3">
+  <input type="radio" name="my_tabs_2" className="tab" aria-label="Saved" 
+  checked={activeTab==="saved"} onChange={()=>setactiveTab("saved")} />
+  <div className="tab-content border-base-300 bg-base-100 mt-4">
    {saveCard.length>0?
     sortedSaveCard.map((card:Icard)=>(
       <NewCard key={card.id} card={card} type="saved"></NewCard>

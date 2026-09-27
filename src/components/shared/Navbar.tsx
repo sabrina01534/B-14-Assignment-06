@@ -40,10 +40,37 @@ FITLOG
     </ul>
   </div>
  
-  <div className="navbar-end gap-8 mr-8">
-    <Link href={"/listed-card"} className={pathename==="/listed-card"? "text-[#C2F800]" :"text-white" } >Plan{todayplan.length}</Link>
-    <Link href={"/listed-card"} className={pathename==="/listed-card"? "text-[#C2F800]" :"text-white"}>Saved{saveCard.length}</Link>
-  </div>
+ <div className="navbar-end gap-3 mr-8">
+  <Link
+    href="/listed-card"
+    className={`px-4 py-2 rounded-full font-semibold transition-all duration-300
+      ${
+        pathename === "/listed-card"
+          ? "bg-[#C2F800] text-black shadow-lg shadow-[#C2F800]/20"
+          : "bg-white/10 text-white hover:bg-white/20"
+      }`}
+  >
+    Plan
+    <span className="ml-2 rounded-full bg-black/20 px-2 py-0.5 text-sm">
+      {todayplan.length}
+    </span>
+  </Link>
+
+  <Link
+    href="/listed-card"
+    className={`px-4 py-2 rounded-full font-semibold transition-all duration-300
+      ${
+        pathename === "/listed-card"
+          ? "bg-[#C2F800] text-black shadow-lg shadow-[#C2F800]/20"
+          : "bg-white/10 text-white hover:bg-white/20"
+      }`}
+  >
+    Saved
+    <span className="ml-2 rounded-full bg-black/20 px-2 py-0.5 text-sm">
+      {saveCard.length}
+    </span>
+  </Link>
+</div>
 </div>
     );
 };

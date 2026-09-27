@@ -4,6 +4,8 @@ import { Icard } from "@/types/cardtypes";
 import Image from "next/image";
 
 import { CiCalendarDate, CiSaveDown2 } from "react-icons/ci";
+import { FaFire, FaStar } from "react-icons/fa";
+import { MdOutlineAccessTimeFilled } from "react-icons/md";
 
 interface ICardDetailsProps{
     params:Promise<{
@@ -63,15 +65,15 @@ console.log(card,"card")
 </tr>
 <tr className="border  border-gray-600 flex justify-between">
   <th className="px-4 py-3 text-left">DURATION</th>
-<td className="mt-2 items-center pr-3">{card.duration}</td>
+<td className="mt-2 flex gap-1 items-center pr-3"><MdOutlineAccessTimeFilled />{card.duration}</td>
 </tr>
 <tr className="border  border-gray-600 flex justify-between">
   <th className="px-4 py-3 text-left">CALORIES</th>
-<td className="mt-2 items-center pr-3">{card.caloriesBurned}</td>
+<td className="mt-2 flex gap-1 items-center pr-3"><FaFire />{card.caloriesBurned}</td>
 </tr>
 <tr className="border  border-gray-600 flex justify-between">
   <th className="px-4 py-3 text-left">RATING</th>
-<td className="mt-2 items-center pr-3">{card.rating}</td>
+<td className="mt-2 flex gap-1 items-center pr-3"><FaStar />{card.rating}</td>
 </tr>
 </tbody>
 </table>

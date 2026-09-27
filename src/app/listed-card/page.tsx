@@ -55,8 +55,8 @@ const totalCalories=currentActiveCard.reduce(
 <p className="text-center text-2xl">{totalCalories}</p>
 </div>
       </div>
-     <div className="flex justify-end mt-15">
-      <p className="mt-2 mr-3">Sort by</p>
+     {/* <div className="flex  mt-15">
+      <p className="mt-2 mr-10">Sort by</p>
  <select value={sortBy} onChange={(e)=>setSortBy(e.target.value as "Duration" |"Caloriburn")}
  className="select select-warning">
   <option disabled={true}></option>
@@ -64,9 +64,11 @@ const totalCalories=currentActiveCard.reduce(
   <option>Caloriburn</option>
  
 </select>
-</div>
+</div> */}
 
-  <div className="tabs tabs-border mt-5 ml-10 mr-10">
+ <div className="mt-5 ml-10 mr-10 flex items-center justify-between">
+   <div className="tabs tabs-border ">
+ 
   <input type="radio" name="my_tabs_2" className="tab" aria-label="Today's plan"
   checked={activeTab==="plan"} onChange={()=>setactiveTab("plan")}/>
   <div className="tab-content border-base-300 bg-base-100 p-10 space-y-4">
@@ -90,7 +92,7 @@ const totalCalories=currentActiveCard.reduce(
 
   <input type="radio" name="my_tabs_2" className="tab" aria-label="Saved" 
   checked={activeTab==="saved"} onChange={()=>setactiveTab("saved")} />
-  <div className="tab-content border-base-300 bg-base-100 mt-4">
+  <div className="tab-content border-base-300 bg-base-100 mt-4 space-y-4">
    {saveCard.length>0?
     sortedSaveCard.map((card:Icard)=>(
       <NewCard key={card.id} card={card} type="saved"></NewCard>
@@ -101,10 +103,23 @@ const totalCalories=currentActiveCard.reduce(
       </p>
     )
    }
+   
     </div>
 
-
+   <div className="flex mt-15">
+      <p className="mt-2 mr-10">Sort by</p>
+ <select value={sortBy} onChange={(e)=>setSortBy
+ (e.target.value as "Duration" |"Caloriburn")}
+ className="select">
+  <option disabled={true}></option>
+  <option>Duration</option>
+  <option>Caloriburn</option>
+ 
+</select>
 </div>
+</div>
+  
+ </div>
 
 </div>
    

@@ -55,19 +55,19 @@ const totalCalories=currentActiveCard.reduce(
 <p className="text-center text-2xl">{totalCalories}</p>
 </div>
       </div>
-     {/* <div className="flex  mt-15">
+     <div className="flex justify-end mt-15">
       <p className="mt-2 mr-10">Sort by</p>
  <select value={sortBy} onChange={(e)=>setSortBy(e.target.value as "Duration" |"Caloriburn")}
- className="select select-warning">
+ className="select">
   <option disabled={true}></option>
   <option>Duration</option>
   <option>Caloriburn</option>
  
 </select>
-</div> */}
+</div>
 
- <div className="mt-5 ml-10 mr-10 flex items-center justify-between">
-   <div className="tabs tabs-border ">
+ 
+   <div className="tabs tabs-border mt-5 ml-10 mr-10">
  
   <input type="radio" name="my_tabs_2" className="tab" aria-label="Today's plan"
   checked={activeTab==="plan"} onChange={()=>setactiveTab("plan")}/>
@@ -106,22 +106,12 @@ const totalCalories=currentActiveCard.reduce(
    
     </div>
 
-   <div className="flex mt-15">
-      <p className="mt-2 mr-10">Sort by</p>
- <select value={sortBy} onChange={(e)=>setSortBy
- (e.target.value as "Duration" |"Caloriburn")}
- className="select">
-  <option disabled={true}></option>
-  <option>Duration</option>
-  <option>Caloriburn</option>
  
-</select>
-</div>
 </div>
   
  </div>
 
-</div>
+
    
   );
 };

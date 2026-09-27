@@ -69,7 +69,7 @@ const totalCalories=currentActiveCard.reduce(
   <div className="tabs tabs-border mt-5 ml-10 mr-10">
   <input type="radio" name="my_tabs_2" className="tab" aria-label="Today's plan"
   checked={activeTab==="plan"} onChange={()=>setactiveTab("plan")}/>
-  <div className="tab-content border-base-300 bg-base-100 p-10">
+  <div className="tab-content border-base-300 bg-base-100 p-10 space-y-4">
   {todayplan.length>0?
     sortedTodayPlan.map((card) => (
   <NewCard
